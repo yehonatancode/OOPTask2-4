@@ -42,7 +42,19 @@ public class Csv2Kml {
 	}
 
 	public String timeStamp(String name) {
-		return name;
+		System.out.println(name);
+		  	name.replaceAll("-", "");
+	        name.replaceAll(":","");
+	        name.replaceAll(" ", "");
+	        System.out.println(name.toString());
+	        long year = ((Long.parseLong((String) name.substring(0, 4))-1970)*12);
+	        long month = (year + Long.parseLong((String) name.substring(5, 7)))/2*30 + (year + Long.parseLong((String) name.substring(5, 7)))/2*31 ;
+	        long day = (month + Long.parseLong((String) name.substring(8, 10)))*24;
+	        long hour = (day + Long.parseLong((String) name.substring(11, 13)))*60;
+	        long minute = (hour + Long.parseLong((String) name.substring(14, 16)))*60;
+	        long seconds = (minute + Long.parseLong((String) name.substring(17, 19)));
+	        return ""+seconds;
+	        
 	}
 
 	public void run() throws IOException {
@@ -59,7 +71,7 @@ public class Csv2Kml {
 						"</b><br/>Capabilities: <b>"+parsed[2]+"</b><br/>Frequency: <b>"+2462+
 						"</b><br/>Timestamp: <b>" + timeStamp(parsed[3]) +"</b><br/>Date: <b>"+parsed[3]+"</b>]]></description><styleUrl>#red</styleUrl>\n");
 				writer.write("<Point>\r\n" + 
-						"<coordinates>" + parsed[7]+","+timeStamp(parsed[6])+"</coordinates></Point>\n");
+						"<coordinates>" + parsed[7]+","+parsed[6]+"</coordinates></Point>\n");
 				writer.write("</Placemark>\r\n");
 				str = reader.readLine();
 				if (str!=null)
