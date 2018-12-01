@@ -2,19 +2,19 @@
 <kml xmlns="http://www.opengis.net/kml/2.2"><Document><Style id="red"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href></Icon></IconStyle></Style><Style id="yellow"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href></Icon></IconStyle></Style><Style id="green"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style><Folder><name>Wifi Networks</name>
 <Placemark>
 <name><![CDATA[Efrat]]></name>
-<description> <![CDATA[BSSID: <b>40:65:a3:35:4c:c4</b><br/>Capabilities: <b>[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]</b><br/>Frequency: <b>2462</b><br/>Timestamp: <b>1518000548</b><br/>Date: <b>2017-12-01 10:49:08</b>]]></description><styleUrl>#red</styleUrl>
+<description> <![CDATA[BSSID: <b>40:65:a3:35:4c:c4</b><br/>Capabilities: <b>[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]</b><br/>Frequency: <b>2462</b><br/>Timestamp: <b>1518000548</b><br/>Date: <b>2017-12-01 10:49:08</b>]]></description><styleUrl>#yellow</styleUrl>
 <Point>
 <coordinates>34.81446401702757,32.17218268216534</coordinates></Point>
 </Placemark>
 <Placemark>
 <name><![CDATA[Volvo247]]></name>
-<description> <![CDATA[BSSID: <b>08:97:58:32:69:c6</b><br/>Capabilities: <b>[WPA2-PSK-CCMP][WPS][ESS]</b><br/>Frequency: <b>2462</b><br/>Timestamp: <b>1518000554</b><br/>Date: <b>2017-12-01 10:49:14</b>]]></description><styleUrl>#red</styleUrl>
+<description> <![CDATA[BSSID: <b>08:97:58:32:69:c6</b><br/>Capabilities: <b>[WPA2-PSK-CCMP][WPS][ESS]</b><br/>Frequency: <b>2462</b><br/>Timestamp: <b>1518000554</b><br/>Date: <b>2017-12-01 10:49:14</b>]]></description><styleUrl>#yellow</styleUrl>
 <Point>
 <coordinates>34.814448298318844,32.172209259560766</coordinates></Point>
 </Placemark>
 <Placemark>
 <name><![CDATA[love]]></name>
-<description> <![CDATA[BSSID: <b>14:ae:db:58:73:75</b><br/>Capabilities: <b>[WPA2-PSK-CCMP][ESS]</b><br/>Frequency: <b>2462</b><br/>Timestamp: <b>1518000569</b><br/>Date: <b>2017-12-01 10:49:29</b>]]></description><styleUrl>#red</styleUrl>
+<description> <![CDATA[BSSID: <b>14:ae:db:58:73:75</b><br/>Capabilities: <b>[WPA2-PSK-CCMP][ESS]</b><br/>Frequency: <b>2462</b><br/>Timestamp: <b>1518000569</b><br/>Date: <b>2017-12-01 10:49:29</b>]]></description><styleUrl>#yellow</styleUrl>
 <Point>
 <coordinates>34.81436692415887,32.172250875103074</coordinates></Point>
 </Placemark>

@@ -1,20 +1,11 @@
 import Geom.Point3D;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.security.Timestamp;
-import java.util.Calendar;
-import java.util.Date; 
-
-import org.omg.CORBA.Current;
-
 import Algorithm.Multy_CSV;
 import Coords.*;
-import File_format.Csv2Kml;
+import GIS.My_GIS_Project;
 
 public class main {
-	public static void main (String [] args) throws Exception {
+	public static void main (String [] args) {
 		Point3D p = new Point3D(32.10332, 35.20904,670);
 		Point3D p1 = new Point3D(32.10635, 35.20523,650);
 		My_coords c = new My_coords();
@@ -29,10 +20,13 @@ public class main {
 		System.out.println("the distance between two point: "+a[2]);
       
 		Multy_CSV l = new Multy_CSV();
-		l.run();
+		try {
+			l.run();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	//1512125348
-	//1518000548
 
 
 }

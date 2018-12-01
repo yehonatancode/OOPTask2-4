@@ -10,11 +10,13 @@ import java.io.FileWriter;
 
 import java.io.IOException;
 
+import GIS.My_GIS_Layer;
+import GIS.My_GIS_Project;
+import GIS.My_GIS_element;
+
 
 
 public class Csv2Kml {
-
-	private static final String ICON_URL = "http://campanalbero.net/icon/";
 
 	private final BufferedWriter writer;
 
@@ -37,7 +39,9 @@ public class Csv2Kml {
 				+ "<Icon><href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href></Icon>"
 				+ "</IconStyle></Style><Style id=\"green\"><IconStyle>"
 				+ "<Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon>"
-				+ "</IconStyle></Style><Folder>"
+				+ "</IconStyle></Style>"
+				+ "<Style id=\"blue\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/pushpin/purple-pushpin.png</href></Icon></IconStyle></Style>\r\n" + 
+				"<Style id=\"pink\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/pushpin/pink-pushpin.png</href></Icon></IconStyle></Style><Folder>"
 				+ "<name>Wifi Networks</name>\n");
 	}
 
@@ -59,6 +63,8 @@ public class Csv2Kml {
 
 	public void run() throws IOException {
 		try {
+			My_GIS_Layer layer = new My_GIS_Layer();
+			My_GIS_Project project1 = new My_GIS_Project();
 			writeStart();
 			reader.readLine();
 			reader.readLine(); // skip 1st line
@@ -69,15 +75,19 @@ public class Csv2Kml {
 				writer.write("<name><![CDATA["+parsed[1]+"]]></name>\n");
 				writer.write("<description> <![CDATA[BSSID: <b>"+parsed[0] +
 						"</b><br/>Capabilities: <b>"+parsed[2]+"</b><br/>Frequency: <b>"+2462+
-						"</b><br/>Timestamp: <b>" + timeStamp(parsed[3]) +"</b><br/>Date: <b>"+parsed[3]+"</b>]]></description><styleUrl>#red</styleUrl>\n");
+						"</b><br/>Timestamp: <b>" + timeStamp(parsed[3]) +"</b><br/>Date: <b>"+parsed[3]+"</b>]]></description><styleUrl>" +layer.get_color()+"</styleUrl>\n");
 				writer.write("<Point>\r\n" + 
 						"<coordinates>" + parsed[7]+","+parsed[6]+"</coordinates></Point>\n");
 				writer.write("</Placemark>\r\n");
+				My_GIS_element m = new My_GIS_element();
+				m.Set_My_GIS_element(parsed);
+				layer.add(m);
 				str = reader.readLine();
 				if (str!=null)
 					parsed = str.split(",");
 
 			}
+			project1.add(layer);
 			writer.write("</Folder>\n"
 					+ "</Document></kml>");
 		} catch (Exception e) {

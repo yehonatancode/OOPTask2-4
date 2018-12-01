@@ -13,6 +13,7 @@ public class Multy_CSV {
 
 			public void run() throws Exception {
 		System.out.println("Enter the directory path");
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		String s = scan.nextLine();
 		File fileNew = new File(s);

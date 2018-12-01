@@ -3,92 +3,111 @@ package GIS;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Random;
 
 public class My_GIS_Layer implements GIS_layer {
-	ArrayList<GIS_element> layer = new ArrayList<GIS_element>();
+	public ArrayList<GIS_element> layer1;
+	public String color;
+	
+	public String [] colors = {"#red","#green","#pink","#yellow","#blue"};
+	Random ran = new Random();
+	
+
+	public My_GIS_Layer() {
+		this.layer1= new ArrayList<GIS_element>();
+		String s_ran = this.colors[ran.nextInt(this.colors.length)];
+		this.color = s_ran;
+	}
+	public String get_color() {
+		return this.color;
+	}
 
 	@Override
 	public boolean add(GIS_element e) {
-		layer.add(e);
+		layer1.add(e);
 		return true;
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends GIS_element> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean addAll(Collection<? extends GIS_element> c) {
+		this.layer1.addAll(c);
+		return true;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		this.layer1.clear();
 	}
 
 	@Override
-	public boolean contains(Object arg0) {
-		// TODO Auto-generated method stub
+	public boolean contains(Object o) {
+		if (this.layer1.contains(o))
+			return true;
 		return false;
 	}
 
 	@Override
-	public boolean containsAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
+	public boolean containsAll(Collection<?> c) {
+		if (this.layer1.containsAll(c))
+			return true;
 		return false;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
+		if(this.layer1.isEmpty())
+			return true;
 		return false;
 	}
 
 	@Override
 	public Iterator<GIS_element> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.layer1.iterator();
 	}
 
 	@Override
-	public boolean remove(Object arg0) {
-		// TODO Auto-generated method stub
+	public boolean remove(Object o) {
+		if (this.layer1.remove(o))
+			return true;
 		return false;
 	}
 
 	@Override
-	public boolean removeAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
+	public boolean removeAll(Collection<?> c) {
+		if (this.layer1.removeAll(c))
+			return true;
 		return false;
 	}
 
 	@Override
-	public boolean retainAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
+	public boolean retainAll(Collection<?> c) {
+		if(this.layer1.retainAll(c))
+			return true;
 		return false;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.layer1.size();
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.layer1.toArray();
 	}
 
 	@Override
-	public <T> T[] toArray(T[] arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public <T> T[] toArray(T[] a) {
+		return this.layer1.toArray(a);
+
 	}
 
 	@Override
 	public Meta_data get_Meta_data() {
-		// TODO Auto-generated method stub
-		return null;
+		My_Meta_data m = new My_Meta_data();
+		m.getUTC();
+		return m;
 	}
 
 }
+
