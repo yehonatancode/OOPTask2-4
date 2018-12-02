@@ -21,7 +21,10 @@ public class main {
       
 		Multy_CSV l = new Multy_CSV();
 		try {
-			l.run();
+			My_GIS_Project project = new My_GIS_Project();
+			project = l.run();
+			System.out.println(project.toString());
+			System.out.println(project.toArray());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -11,7 +11,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import GIS.My_GIS_Layer;
-import GIS.My_GIS_Project;
 import GIS.My_GIS_element;
 
 
@@ -61,10 +60,9 @@ public class Csv2Kml {
 	        
 	}
 
-	public void run() throws IOException {
+	public My_GIS_Layer run() throws IOException {
 		try {
 			My_GIS_Layer layer = new My_GIS_Layer();
-			My_GIS_Project project1 = new My_GIS_Project();
 			writeStart();
 			reader.readLine();
 			reader.readLine(); // skip 1st line
@@ -87,9 +85,9 @@ public class Csv2Kml {
 					parsed = str.split(",");
 
 			}
-			project1.add(layer);
 			writer.write("</Folder>\n"
 					+ "</Document></kml>");
+			return layer;
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		} finally {
