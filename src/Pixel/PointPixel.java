@@ -18,11 +18,10 @@ public class PointPixel {
 		this.x = x;
 		this.y = y;
 	}
-	public PointPixel setPointpixel(double x , double y) {
-		PointPixel p = new PointPixel();
-		p.x = x;
-		p.y = y;
-		return p;
+	public void setPointpixel(double x , double y) {
+		
+		this.x = x;
+		this.y = y;
 	}
 	
 	public boolean setRange(double l,double r,double u,double d) {

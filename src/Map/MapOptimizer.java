@@ -40,7 +40,7 @@ public class MapOptimizer {
 	}
 	
 	public double Range() {
-		double pro =this.myImage.getWidth() /(this.LeftUpCorner.x()-this.RighttUpCorner.x());
+		double pro =this.myImage.getWidth() /(this.RighttUpCorner.x() - this.LeftUpCorner.x());
 		return pro;
 	}
 	

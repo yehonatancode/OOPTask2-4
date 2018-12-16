@@ -18,8 +18,7 @@ public class coordsToPixel {
 		try {
 			
 			MapOptimizer m = new MapOptimizer();
-			Point3D point = new Point3D(m.LeftUpCorner.x() +(p.GetX()*m.Range()),m.LeftUpCorner.y() +(p.GetY()*m.Range()));
-			m.Range();
+			Point3D point = new Point3D(m.LeftUpCorner.x() +(p.GetX()*m.Range()) , m.LeftUpCorner.y() +(p.GetY()*m.Range()));
 			return point;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -31,8 +30,7 @@ public class coordsToPixel {
 		try {
 			
 			MapOptimizer m = new MapOptimizer();
-			Point3D point = new Point3D(m.LeftUpCorner.x() +(x/m.Range()),m.LeftUpCorner.y() +(y/m.Range()));
-			m.Range();
+			Point3D point = new Point3D(m.LeftUpCorner.x() + (x /m.Range()) ,m.LeftUpCorner.y() +(y / m.Range()));
 			return point;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
