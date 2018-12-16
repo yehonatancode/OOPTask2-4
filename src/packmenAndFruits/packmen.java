@@ -31,13 +31,13 @@ public class packmen {
 	public packmen(int x, int y) {
 		this.pixelP.setPointpixel(x, y);
 		coordsToPixel con = new coordsToPixel();
-		this.gpsP = con.convertFromPixelToGPS(this.pixelP);
+		this.gpsP = con.convertFromPixelToGPS(this.pixelP.GetX(),this.pixelP.GetY());
 	}
 
 	public void setPackmenPosition(PointPixel p ) {
 		this.pixelP = p;
 		coordsToPixel con = new coordsToPixel();
-		this.gpsP = con.convertFromPixelToGPS(p);
+		this.gpsP = con.convertFromPixelToGPS(p.GetX(),p.GetY());
 	}
 	public void setPackmenPosition(double x , double y ) {
 		this.pixelP.setPointpixel(x, y);
