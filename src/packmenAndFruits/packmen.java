@@ -1,7 +1,6 @@
 package packmenAndFruits;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
 
@@ -15,6 +14,7 @@ public class packmen {
 	BufferedImage a;
 	private PointPixel pixelP;
 	private Point3D gpsP;
+	private double speed;
 	
 	public packmen() {
 		try {
@@ -25,13 +25,14 @@ public class packmen {
 		}
 		this.pixelP = new PointPixel();
 		this.gpsP = new Point3D(0, 0);
-		
+		this.speed = 1;
 	}
 
 	public packmen(int x, int y) {
 		this.pixelP.setPointpixel(x, y);
 		coordsToPixel con = new coordsToPixel();
 		this.gpsP = con.convertFromPixelToGPS(this.pixelP.GetX(),this.pixelP.GetY());
+		this.speed = 1;
 	}
 
 	public void setPackmenPosition(PointPixel p ) {
@@ -39,22 +40,24 @@ public class packmen {
 		coordsToPixel con = new coordsToPixel();
 		this.gpsP = con.convertFromPixelToGPS(p.GetX(),p.GetY());
 	}
+	
 	public void setPackmenPosition(double x , double y ) {
 		this.pixelP.setPointpixel(x, y);
 		coordsToPixel con = new coordsToPixel();
-		this.gpsP = con.convertFromPixelToGPS(this.pixelP);
-		System.out.println("the convert is " + this.gpsP);
+		this.gpsP = con.convertFromPixelToGPS(this.pixelP.GetX(),this.pixelP.GetY());
 	}
 	
-	public void paint(int x, int y, ImageObserver o) {
-		this.a.createGraphics().drawImage(this.a ,x ,y ,o);
-		
-	}
 	public Point3D get3Dpoint() {
 		return this.gpsP;
 	}
 	public PointPixel getPixelPoint() {
 		return this.pixelP;
+	}
+	public void setSpeed(double s) {
+		this.speed = s;
+	}
+	public double getSpeed() {
+		return this.speed;
 	}
 
 

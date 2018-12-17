@@ -9,14 +9,17 @@ private double earthrhRadius = 6371000;
 	public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
 		double lonNorm = Math.cos((gps.x()*Math.PI)/180);
 		
-		double lat_change = Math.asin(local_vector_in_meter.x()/lonNorm/earthrhRadius);
-		lat_change = (lat_change/Math.PI) * 180;
+		double lat_change = Math.asin(local_vector_in_meter.x()/earthrhRadius)*(180/Math.PI);
 		lat_change = lat_change + gps.x();
 		
-		double lon_change = Math.asin(local_vector_in_meter.y()/lonNorm/earthrhRadius);
-		lon_change = (lon_change/Math.PI) * 180;
+		double lon_change = Math.asin(local_vector_in_meter.y()/earthrhRadius*lonNorm)*(180/Math.PI);
 		lon_change = lon_change + gps.y();
-		
+		if(lat_change>180) {
+			lat_change=((lat_change+180)%360)-180;
+		}
+		if(lat_change<-180) {
+			lat_change=(lon_change+180)+180;
+		}
 		Point3D p = new Point3D(lat_change, lon_change, gps.z()+local_vector_in_meter.z());
 		return p;
 	

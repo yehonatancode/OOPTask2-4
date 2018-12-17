@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+
+import Coords.My_coords;
 import Coords.coordsToPixel;
 import packmenAndFruits.fruits;
 import packmenAndFruits.packmen;
@@ -132,6 +134,10 @@ public class GuiEX3 extends JFrame implements MouseListener,ActionListener,ItemL
 					listPackmen.get(listPackmen.size()-1).getPixelPoint().GetY());
 			System.out.println("location = "+listPackmen.get(listPackmen.size()-1).get3Dpoint().x() +","+
 					listPackmen.get(listPackmen.size()-1).get3Dpoint().y());
+		}
+		if(this.listPackmen.size() == 2 ) {
+			My_coords mycoords = new My_coords();
+			System.out.println("distance!!: " +mycoords.distance3d(this.listPackmen.get(0).get3Dpoint(), this.listPackmen.get(1).get3Dpoint()));
 		}
 
 		repaint();

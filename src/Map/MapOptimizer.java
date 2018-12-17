@@ -17,11 +17,12 @@ public class MapOptimizer {
 	
 	public MapOptimizer() throws Exception {
 		this.myImage = ImageIO.read(new File("C:\\Users\\salim\\Desktop\\μιξεγιν\\Projects\\GIS_Ex02\\Ariel1.png"));
-		this.LeftUpCorner = new Point3D(32.105733,35.202369 );
-		this.RighttUpCorner = new Point3D(32.105739, 35.212436);
-		this.LeftDownCorner = new Point3D(32.101858,35.202381);
-		this.RighttDownCorner = new Point3D(32.101864, 35.212428);
+		this.LeftUpCorner = new Point3D(32.105258, 35.202667 );
+		this.RighttUpCorner = new Point3D(32.105258, 35.212405);
+		this.LeftDownCorner = new Point3D(32.101858, 35.202667);
+		this.RighttDownCorner = new Point3D(32.101858, 35.212405);
 		
+		//32.105258, 35.202667
 	}
 	
 	public void SetCorners(Point3D ul, Point3D ur,Point3D dr,Point3D dl) {

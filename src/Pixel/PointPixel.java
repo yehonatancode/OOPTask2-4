@@ -39,5 +39,13 @@ public class PointPixel {
 	public double GetY() {
 		return this.y;
 	}
+	
+	//this fuction calculate the azimuth between two points
+	public double azimuth(PointPixel p , PointPixel p1) {
+		double m = (p.GetY() - p1.GetY())/ (p.GetX() - p1.GetX());
+		double degree = Math.atan(m);
+		return degree;
+				
+	}
 
 }

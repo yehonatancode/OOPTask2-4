@@ -14,38 +14,53 @@ public class coordsToPixel {
 	
 	// convert Pixel on map to GPS point
 	public Point3D convertFromPixelToGPS (PointPixel p) {
-		try {
+			MapOptimizer m;
+		
+			try {
+			m = new MapOptimizer();
+			double MinMaxdiff_Y = m.LeftUpCorner.x() - m.RighttDownCorner.x();
+			double MinMaxdiff_X = m.RighttDownCorner.y() - m.LeftDownCorner.y();
 			
-			MapOptimizer m = new MapOptimizer();
-			Point3D point = new Point3D(m.LeftUpCorner.x() +(p.GetX()*m.Range()) , m.LeftUpCorner.y() +(p.GetY()*m.Range()));
-			return point;
+			double diffCoord_X=(MinMaxdiff_X*p.GetX())/m.getWidth();
+			double diffCoord_Y=(MinMaxdiff_Y*p.GetY())/m.getHight();
+
+			double FullCoord_X=diffCoord_X+m.LeftDownCorner.x();
+			double FullCoord_Y=diffCoord_Y+m.LeftDownCorner.y();
+
+			Point3D ThisPoint=new Point3D(FullCoord_X,FullCoord_Y);
+			return ThisPoint;	
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
-		}
+		}		
 	}
 	public Point3D convertFromPixelToGPS (double x , double y) {
+		MapOptimizer m;
+		
 		try {
-			
-			MapOptimizer m = new MapOptimizer();
-			My_coords con = new My_coords();
-			double [] a = con.azimuth_elevation_dist(m.LeftUpCorner,m.RighttUpCorner);
-			double distance2 = a[2];	
-			System.out.println("the distance is" + distance2);
-			double pixelToMeter = distance2 / m.myImage.getWidth() ; // the range
-			System.out.println(pixelToMeter);
-			Point3D vector = new Point3D(pixelToMeter*(-x), pixelToMeter*(y));
-			Point3D point1 = new Point3D(m.LeftUpCorner.x() , m.LeftUpCorner.y());
-			Point3D result = con.add(point1, vector);
-			System.out.println("result "+result.x()+","+result.y());
-			//Point3D point = new Point3D(m.LeftUpCorner.x() + (x /m.Range()) ,m.LeftUpCorner.y() +(y / m.Range()));
-			return result;
+			m = new MapOptimizer();
+			double MinMaxdiff_Y = m.LeftUpCorner.x() - m.RighttDownCorner.x();;
+			double MinMaxdiff_X = m.RighttUpCorner.y() - m.LeftUpCorner.y();
+			System.out.println(MinMaxdiff_Y);
+
+			double diffCoord_X = (MinMaxdiff_X* x)/m.myImage.getWidth();
+			System.out.println(m.myImage.getHeight());
+			double diffCoord_Y = (MinMaxdiff_Y* y)/m.myImage.getHeight();
+			System.out.println(diffCoord_Y);
+			double FullCoord_X=m.LeftUpCorner.x() - diffCoord_Y;
+			double FullCoord_Y=m.LeftDownCorner.y() + diffCoord_X;
+			System.out.println(FullCoord_Y);
+			Point3D ThisPoint=new Point3D(FullCoord_X,FullCoord_Y);
+			return ThisPoint;	
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
-		}
+		}		
 	}
+	
+	
+	
 
 }
