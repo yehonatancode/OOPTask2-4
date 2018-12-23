@@ -16,7 +16,7 @@ public class MapOptimizer {
 	public BufferedImage myImage;
 	
 	public MapOptimizer() throws Exception {
-		this.myImage = ImageIO.read(new File("C:\\Users\\salim\\Desktop\\μιξεγιν\\Projects\\GIS_Ex02\\Ariel1.png"));
+		this.myImage = ImageIO.read(new File("C:\\Users\\User\\git\\Ex2-Ex4\\Ariel1.png"));
 		this.LeftUpCorner = new Point3D(32.105258, 35.202667 );
 		this.RighttUpCorner = new Point3D(32.105258, 35.212405);
 		this.LeftDownCorner = new Point3D(32.101858, 35.202667);
